@@ -1,0 +1,240 @@
+@import "variables";
+@import "reset";
+
+@mixin background-image($image, $position) {
+	background-image: $image;
+	background-repeat: no-repeat;
+	background-position: $position;
+}
+
+@function weight($weight) {
+	@return map-get($font-weights, $weight);
+}
+
+@function font-size($size) {
+	@return map-get($font-sizes, $size);
+}
+
+@function font-color($color) {
+	@return map-get($font-colors, $color);
+}
+
+@mixin font($color, $size) {
+	font-size: font-size($size);
+	color: font-color($color);
+	font-family: $font-family;
+}
+
+body {
+	@include background-image($body-image, top);
+}
+
+header {
+	@include background-image($header-image, center);
+
+	padding: 100px 0 90px 0;
+
+	p {
+		padding-top: 12px;
+	}
+}
+
+.container {
+	max-width: 550px;
+	margin: auto;
+	text-align: center;
+	@include font(grayish-blue, normal);
+
+	h1 {
+		@include font(dark-blue, medium);
+	}
+}
+
+.top-package {
+	background-color: $white-pricing-Component-Background;
+	border-radius: 10px;
+	box-shadow: 0 5px 12px rgba(33, 36, 41, 0.1);
+	margin-bottom: 50px;
+}
+
+main {
+	padding: 2rem 3rem;
+
+	input[type="range"] {
+		margin-top: 45px;
+		appearance: none;
+		background-color: $soft-cyan;
+		border-radius: 20px;
+		width: 100%;
+		height: 8px;
+	}
+
+	input[type="range"]::-ms-fill-lower {
+		appearance: none;
+		background-color: $Light-Grayish-Blue-Toggle-Background;
+	}
+
+	input[type="range"]::-webkit-slider-thumb {
+		appearance: none;
+		width: 40px;
+		height: 40px;
+		border-radius: 50%;
+		background: url("images/icon-slider.svg");
+		background-repeat: no-repeat;
+		background-position: center;
+		background-color: $strong-cyan;
+		box-shadow: 0 20px 20px $soft-cyan;
+	}
+}
+
+.price-output {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+
+	&-page-views {
+		@include font(grayish-blue, small);
+		font-weight: weight(medium);
+		text-transform: uppercase;
+		letter-spacing: 0.2rem;
+	}
+
+	&-month {
+		@extend .price-output;
+
+		#price {
+			@include font(dark-blue, large);
+
+			font-weight: weight(medium);
+		}
+
+		#per {
+			margin-left: 5px;
+		}
+	}
+}
+
+.price-option {
+	display: flex;
+	margin: 50px 20px 15px 0;
+	justify-content: flex-end;
+	@include font(grayish-blue, small);
+
+	&-billing {
+		// input {
+		// 	appearance: none;
+		// 	margin-left: 15px;
+		// 	width: 45px;
+		// 	height: 22px;
+		// 	border-radius: 20px;
+		// 	background-color: $Light-Grayish-Blue-Toggle-Background;
+		// }
+		// input::-webkit-slider-thumb {
+		// 	background: $white-pricing-Component-Background;
+		// 	width: 20px;
+		// 	height: 20px;
+		// 	border-radius: 50%;
+		// 	// TODO: add circle
+		// }
+
+		.switch {
+			margin-left: 15px;
+			position: relative;
+			display: inline-block;
+			width: 40px;
+			height: 22px;
+		}
+
+		.switch input {
+			opacity: 0;
+			width: 0;
+			height: 0;
+		}
+
+		.slider {
+			position: absolute;
+			cursor: pointer;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			background-color: #ccc;
+			transition: 0.4s;
+		}
+
+		.slider:before {
+			position: absolute;
+			content: "";
+			height: 14px;
+			width: 14px;
+			left: 3px;
+			bottom: 4px;
+			background-color: white;
+			transition: 0.4s;
+		}
+
+		input:checked + .slider {
+			background-color: $strong-cyan;
+		}
+
+		input:focus + .slider {
+			box-shadow: 0 0 1px #2196f3;
+		}
+
+		input:checked + .slider:before {
+			transform: translateX(18px);
+		}
+
+		.slider.round {
+			border-radius: 34px;
+		}
+
+		.slider.round:before {
+			border-radius: 50%;
+		}
+	}
+
+	&-discount {
+		display: flex;
+		margin-left: 15px;
+
+		&-number {
+			height: 18px;
+			margin-left: 15px;
+			@include font(light-red, extra-small);
+			background-color: $light-grayish-red-discount-background;
+			font-weight: weight(medium);
+			border-radius: 20px;
+			padding: 2px 6px;
+		}
+	}
+}
+
+.package {
+	border-top: 1px solid rgba(33, 36, 41, 0.1);
+	padding: 2rem 3rem;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	@include font(grayish-blue, small);
+
+	&-ul {
+		margin-left: 1rem;
+
+		&-li {
+			padding-left: 10px;
+			list-style: none;
+			text-align: left;
+			line-height: 1.6rem;
+			list-style-image: url("images/icon-check.svg");
+		}
+	}
+
+	a {
+		text-decoration: none;
+		color: $pale-blue-CTA-text;
+		background-color: $Dark-Desaturated-Blue-Text-CTA-Background;
+		padding: 0.8rem 2.8rem;
+		border-radius: 3rem;
+	}
+}
