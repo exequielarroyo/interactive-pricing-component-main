@@ -181,6 +181,10 @@ main input[type="range"]::-webkit-slider-thumb {
   border-radius: 34px;
 }
 
+.price-option-billing .slider.round:hover {
+  background-color: #a5f3eb;
+}
+
 .price-option-billing .slider.round:before {
   border-radius: 50%;
 }
@@ -239,5 +243,9 @@ main input[type="range"]::-webkit-slider-thumb {
   background-color: #293356;
   padding: 0.8rem 2.8rem;
   border-radius: 3rem;
+}
+
+.package a:hover {
+  color: white;
 }
 /*# sourceMappingURL=main.css.map */

@@ -189,6 +189,10 @@ main {
 			border-radius: 34px;
 		}
 
+		.slider.round:hover{
+			background-color: $soft-cyan;
+		}
+
 		.slider.round:before {
 			border-radius: 50%;
 		}
@@ -236,5 +240,8 @@ main {
 		background-color: $Dark-Desaturated-Blue-Text-CTA-Background;
 		padding: 0.8rem 2.8rem;
 		border-radius: 3rem;
+	}
+	a:hover {
+		color: $white-pricing-Component-Background;
 	}
 }
