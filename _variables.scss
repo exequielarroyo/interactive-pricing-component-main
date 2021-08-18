@@ -13,25 +13,27 @@ $Light-Grayish-Blue-Toggle-Background: hsl(223, 50%, 87%);
 $Grayish-Blue-Text: hsl(225, 20%, 60%);
 $Dark-Desaturated-Blue-Text-CTA-Background: hsl(227, 35%, 25%);
 
+$mobile: 600px;
+
 $font-family: Manrope;
 $font-size: 15px;
-$font-weights :(
-    "regular": 600,
-    "medium": 800
+$font-weights: (
+	"regular": 600,
+	"medium": 800
 );
 $font-sizes: (
-    "normal": 1rem,
-    "medium": 2rem,
-    "small": .8rem,
-    "extra-small": .6rem,
-    "large": 2.5rem
+	"large": 2.5rem,
+	"normal": 1rem,
+	"medium": 2rem,
+	"small": 0.8rem,
+	"extra-small": 0.6rem
 );
 $font-colors: (
-    "grayish-blue": $Grayish-Blue-Text,
-    "dark-blue": $Dark-Desaturated-Blue-Text-CTA-Background,
-    "light-red": $light-red-discount-text,
-    "pale-blue": $pale-blue-CTA-text
+	"grayish-blue": $Grayish-Blue-Text,
+	"dark-blue": $Dark-Desaturated-Blue-Text-CTA-Background,
+	"light-red": $light-red-discount-text,
+	"pale-blue": $pale-blue-CTA-text
 );
 
-$body-image: url('images/bg-pattern.svg');
-$header-image: url('images/pattern-circles.svg')
+$body-image: url("images/bg-pattern.svg");
+$header-image: url("images/pattern-circles.svg");
